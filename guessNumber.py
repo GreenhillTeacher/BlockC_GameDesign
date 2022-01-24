@@ -2,6 +2,8 @@
 # name
 #date
 
+#Showing the kids how to change a program in github
+
 #What is the program about 
 import os, random
 os.system('cls')
