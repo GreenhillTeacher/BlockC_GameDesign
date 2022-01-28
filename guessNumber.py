@@ -9,6 +9,8 @@ import os, random
 os.system('cls')
 print("#############################")
 print("#   Guess a number Menu     #")
+print("#                           #")
+print("#      1. guess 1-10        #")
 #ADD a MEnu
 
 # choices  1-10
@@ -16,21 +18,35 @@ print("#   Guess a number Menu     #")
 # choices 1-100
 
 #Select your choice
+#try and except
+#add a loop so that the user can try again
+check = True
+while check:
+    try:
+        choice= int(input("choice: "))
+        if choice > 0 and choice <4:
+            check = False
+        print ("Please enter a number from 1 to 3")
+    except ValueError:
+        print ('Sorry, try again ')
+        
+#check what choice to create the random number
 
-
-
+if choice ==1:
+    guess=random.randint(1,10)
+elif choice ==2:
+    guess=random.randint(1,50)
+else:
+    guess=random.randint(1,100)
 gameOn=True
-
 #looping with condition
-# #get the guess number from random
-guess=random.randint(1,50)
-guess2=random.ran
 counter=0
+print(guess)
 while gameOn:
-    userNum=input("Guess a number from 1 to 50 ")
+    userNum=input("Guess a number")# input always return a string
     #check if the user guessed the number
-    userNum=int(userNum)
-    counter = counter+1
+    userNum=int(userNum)    #typr casting to integer
+    counter = counter+1   #controlling how many guesses the user can have
     if userNum == guess:
         print("You are so smart, you won!")
         gameOn=False
@@ -40,6 +56,6 @@ while gameOn:
         else:
             if userNum < guess-10:
                 print("too bad, you were too far low")
-    if counter ==5:
+    if counter ==5 and gameOn:
         print("Sorry you did not guessed the number")
         gameOn=False
