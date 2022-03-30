@@ -18,6 +18,7 @@ yT=10
 xT=0
 
 square=pygame.Rect(xs,ys,wb,hb )
+bg=pygame.image.load('bgSmaller.jpg')
 
 #Messages
 message=''
@@ -58,7 +59,7 @@ pygame.display.update()
 
 check=True
 while check:
-    
+    window.blit(bg,(0,0))
    
     move=10
     for case in pygame.event.get():
