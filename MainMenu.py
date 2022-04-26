@@ -3,7 +3,7 @@
 #width  the text, mouse position
 
 
-from turtle import window_width
+
 import pygame, time,os
 os.system('cls')
 pygame.init()
@@ -18,7 +18,7 @@ yT=10
 xT=0
 
 square=pygame.Rect(xs,ys,wb,hb )
-bg=pygame.image.load('bgSmaller.jpg')
+# bg=pygame.image.load('bgSmaller.jpg')
 
 #Messages
 message=''
@@ -56,11 +56,12 @@ for message in MainMenu:
 
 
 pygame.display.update()
-
+xm=0
+ym=0
 check=True
 while check:
-    window.blit(bg,(0,0))
-   
+    # window.blit(bg,(0,0))
+    # window.fill(background)
     move=10
     for case in pygame.event.get():
         if case.type == pygame.QUIT:
@@ -68,9 +69,11 @@ while check:
     if case.type==pygame.MOUSEBUTTONDOWN:
         mouse_pos=pygame.mouse.get_pos()
         print(type(mouse_pos ))
-        if (mouse_pos[0]>=20 and mouse_pos[0]<60) and (mouse_pos[1]>=120 and mouse_pos[1]<160) :
-            window.fill(background)
-            #add instruct title
+        xm=mouse_pos[0]
+        ym=mouse_pos[1]
+    if xm>=20 and xm<60 and ym>=120 and ym<160 :
+        window.fill(background)
+        #add instruct title
 
 
 
